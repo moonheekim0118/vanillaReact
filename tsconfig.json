@@ -1,0 +1,13 @@
+{
+    "complierOptions":{
+        "allowJs":true,
+        "checkJs":true,
+        "noImplicitAny":true
+    },
+    "exclude": [
+        "node_modules"
+    ],
+    "include": [
+        "**/*.ts",
+    ]
+}
