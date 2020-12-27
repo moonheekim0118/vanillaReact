@@ -1,45 +1,51 @@
-import indexPage from './pages/index';
-import aboutPage from './pages/about';
-import errorPage from './pages/error';
+import indexPage from "./pages/index";
+import aboutPage from "./pages/about";
+import errorPage from "./pages/error";
 
-const pathLists =["", "about"];
+const pathLists = ["", "about"];
 
 class Router {
-    routes :object;
-    nowPage = '';
+    routes: object;
+    nowPage = "";
 
-    constructor(){
+    constructor() {
         this.nowPage = this.parsePath(window.location.hash);
         this.routes = {
-            "":indexPage,
-            "about":aboutPage,
-            "404":errorPage,
+            "": indexPage,
+            about: aboutPage,
+            "404": errorPage
         };
-    };
+    }
 
- 
-    // 현재 url 주소에 따라서 라우팅해주는 함수 
-    getCurrentURL(path:string){
+    // 현재 url 주소에 따라서 라우팅해주는 함수
+    getCurrentURL(path: string) {
         const key = this.parsePath(path);
         console.log(this.routes[key]);
-        if(pathLists.includes(key)){ 
+        if (pathLists.includes(key)) {
             return this.routes[key];
-        }
-        else{  // pathLists에 없는 주소라면 404 Routing 
+        } else {
+            // pathLists에 없는 주소라면 404 Routing
             return this.routes["404"];
         }
-    };
+    }
 
     // pathname 파싱
-    parsePath(path:string):string{
-        return path.toString().replace("#","");
-    };
+    parsePath(path: string): string {
+        return path.toString().replace("#", "");
+    }
 
     // push to
-    push(pageName:string){
-        window.location.hash=pageName;
+    push(pageName: string) {
+        window.location.hash = pageName;
     }
-};
+
+    // 문서 title 수정
+    changeTitle(title: string) {
+        const elem = document.querySelector("title");
+        elem.innerText = title;
+        console.log(elem);
+    }
+}
 
 const router = new Router();
 

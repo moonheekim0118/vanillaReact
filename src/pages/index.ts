@@ -1,19 +1,12 @@
-import Router from '../route';
+import Router from "../route";
 
- const Index=()=>{
+const Index = () => {
+    const container = document.createElement("div");
+    container.className = "container";
+    container.innerText = "index page";
+    Router.changeTitle("인덱스");
 
-    const container = document.createElement('div');
-    container.className='container';
-    container.innerText='index page';
-    const pushButton = document.createElement('button');
-    pushButton.innerText='go to about page';
-    pushButton.addEventListener('click',()=>{
-        Router.push('about');
-    });
-    
-    container.appendChild(pushButton);
-    
     return container;
-}
+};
 
-export default Index();
+export default Index;
