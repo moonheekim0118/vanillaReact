@@ -19,7 +19,7 @@ class Router {
 
  
     // 현재 url 주소에 따라서 라우팅해주는 함수 
-    getCurrentURL(path){
+    getCurrentURL(path:string){
         const key = this.parsePath(path);
         console.log(this.routes[key]);
         if(pathLists.includes(key)){ 
@@ -36,7 +36,7 @@ class Router {
     };
 
     // push to
-    push(pageName){
+    push(pageName:string){
         window.location.hash=pageName;
     }
 };

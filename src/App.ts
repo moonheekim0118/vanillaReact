@@ -1,7 +1,7 @@
 import Router from './route';
 
 
-const App =($target)=>{
+const App =($target:Element)=>{
     
     window.onhashchange = () => { 
         render();
