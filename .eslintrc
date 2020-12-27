@@ -2,7 +2,7 @@
     "env": {
         "browser": true,
         "es6": true,
-        "node": true,
+        "node": true
     },
     "extends": "eslint:recommended",
     "globals": {
@@ -14,14 +14,8 @@
         "sourceType": "module"
     },
     "rules": {
-        "indent": [
-            "error",
-            4
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
+        "indent": ["error", 4],
+        "semi": ["error", "always"],
         "no-trailing-spaces": 0,
         "keyword-spacing": 0,
         "no-unused-vars": 1,

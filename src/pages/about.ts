@@ -1,11 +1,12 @@
+import Router from "../route";
 
- const About=()=>{
+const About = () => {
+    const container = document.createElement("div");
+    container.className = "container";
+    container.innerText = "about page";
+    Router.changeTitle("어바웃");
 
-    const container = document.createElement('div');
-    container.className='container';
-    container.innerText='about page';
-    
     return container;
-}
+};
 
-export default About();
+export default About;
