@@ -42,8 +42,9 @@ class Router {
     // 문서 title 수정
     changeTitle(title: string) {
         const elem = document.querySelector("title");
-        elem.innerText = title;
-        console.log(elem);
+        if (elem) {
+            elem.innerText = title;
+        }
     }
 }
 
