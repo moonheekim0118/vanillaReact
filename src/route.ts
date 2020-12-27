@@ -2,8 +2,6 @@ import indexPage from "./pages/index";
 import aboutPage from "./pages/about";
 import errorPage from "./pages/error";
 
-const pathLists = ["", "about"];
-
 class Router {
     routes: object;
     nowPage = "";
@@ -12,20 +10,19 @@ class Router {
         this.nowPage = this.parsePath(window.location.hash);
         this.routes = {
             "": indexPage,
-            about: aboutPage,
-            "404": errorPage
+            about: aboutPage
         };
     }
 
     // 현재 url 주소에 따라서 라우팅해주는 함수
     getCurrentURL(path: string) {
         const key = this.parsePath(path);
-        console.log(this.routes[key]);
+        const pathLists = Object.keys(this.routes);
         if (pathLists.includes(key)) {
             return this.routes[key];
         } else {
             // pathLists에 없는 주소라면 404 Routing
-            return this.routes["404"];
+            return errorPage;
         }
     }
 
@@ -37,14 +34,6 @@ class Router {
     // push to
     push(pageName: string) {
         window.location.hash = pageName;
-    }
-
-    // 문서 title 수정
-    changeTitle(title: string) {
-        const elem = document.querySelector("title");
-        if (elem) {
-            elem.innerText = title;
-        }
     }
 }
 

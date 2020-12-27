@@ -1,10 +1,10 @@
-import Router from "../route";
+import { changeTitle } from "../util/util";
 
 const Index = () => {
     const container = document.createElement("div");
     container.className = "container";
     container.innerText = "index page";
-    Router.changeTitle("인덱스");
+    changeTitle("인덱스");
 
     return container;
 };

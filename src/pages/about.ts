@@ -1,10 +1,10 @@
-import Router from "../route";
+import { changeTitle } from "../util/util";
 
 const About = () => {
     const container = document.createElement("div");
     container.className = "container";
     container.innerText = "about page";
-    Router.changeTitle("어바웃");
+    changeTitle("어바웃");
 
     return container;
 };
