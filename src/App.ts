@@ -1,20 +1,21 @@
 import Router from './route';
 
 
-const App =()=>{
+const App =($target)=>{
     
-    window.addEventListener("popstate", (e) => {
+    window.onhashchange = () => { 
         render();
-    });
+     };
 
     function render(){
-        const renderingPage = Router.getCurrentURL(location.pathname);
-        const $target = document.querySelector('.app');
+        const renderingPage = Router.getCurrentURL(window.location.hash);
+        console.log(renderingPage);
+        $target.innerHTML="";
         $target.appendChild(renderingPage);
     }
 
-    setTimeout(render, 0);
+    render();
 }
 
 
-export default App();
+export default App(document.querySelector('.app'));

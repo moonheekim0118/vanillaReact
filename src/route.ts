@@ -4,29 +4,24 @@ import errorPage from './pages/error';
 
 const pathLists =["", "about"];
 
- class Router {
+class Router {
     routes :object;
-    root : string;
+    nowPage = '';
 
     constructor(){
+        this.nowPage = this.parsePath(window.location.hash);
         this.routes = {
             "":indexPage,
             "about":aboutPage,
             "404":errorPage,
         };
-        
-        this.root = "/";
     };
 
-    initialRoutes(){
-        
-    }
  
     // 현재 url 주소에 따라서 라우팅해주는 함수 
-    getCurrentURL(path:string){
+    getCurrentURL(path){
         const key = this.parsePath(path);
-
-        console.log(key);
+        console.log(this.routes[key]);
         if(pathLists.includes(key)){ 
             return this.routes[key];
         }
@@ -37,20 +32,14 @@ const pathLists =["", "about"];
 
     // pathname 파싱
     parsePath(path:string):string{
-        return path.toString().replace("public/","").replace(".html","").replace(/\/$/,"").replace(/^\//,"");
+        return path.toString().replace("#","");
     };
 
-    navigateTo(path) {
-        history.pushState(
-          { prevURL: location.pathname },
-          null,
-          this.root + this.parsePath(path)
-        );
-        const popStateEvent = new PopStateEvent("popstate");
-        dispatchEvent(popStateEvent);
-      }
+    // push to
+    push(pageName){
+        window.location.hash=pageName;
+    }
 };
-
 
 const router = new Router();
 

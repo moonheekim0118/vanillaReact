@@ -3,11 +3,6 @@ const path = require('path');
 module.exports = {
   entry: './src/index.ts',
   watch:true,
-  devServer: {
-    contentBase: path.join(__dirname, "public/index.html"),
-    compress: true,
-    hot: true,
-  },
   module: {
     rules: [
       {
@@ -19,8 +14,8 @@ module.exports = {
         test:/\.scss$/,
         use:[
           'style-loader',
-           'css-loader',
-           'sass-loader',
+          'css-loader',
+          'sass-loader',
         ],
         exclude: /node_modules/,
       }
