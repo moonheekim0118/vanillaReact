@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu test component test 1`] = `
+<aside
+  class="Menu-Container"
+>
+  <ul
+    class="Menu-List"
+  >
+    <li
+      class="Menu"
+      data-id=""
+    >
+      <a
+        class="link"
+        href=""
+      />
+    </li>
+    <li
+      class="Menu visiting"
+      data-id="#about"
+    >
+      <a
+        class="link"
+        href="#about"
+      />
+    </li>
+  </ul>
+</aside>
+`;

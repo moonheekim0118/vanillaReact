@@ -4,10 +4,9 @@ import errorPage from "./pages/error";
 
 class Router {
     routes: object;
-    nowPage = "";
+    nowPage = window.location.hash;
 
     constructor() {
-        this.nowPage = this.parsePath(window.location.hash);
         this.routes = {
             "": indexPage,
             about: aboutPage
@@ -38,5 +37,4 @@ class Router {
 }
 
 const router = new Router();
-
 export default router;
