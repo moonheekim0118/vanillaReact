@@ -1,7 +1,6 @@
-import MenuData from '../util/menuList';
+import MenuData from "../util/menuList";
 
 const Menu = () => {
-
     const MenuContainer = document.createElement("aside");
     MenuContainer.className = "Menu-Container";
     const MenuList = document.createElement("ul");
