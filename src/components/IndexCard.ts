@@ -28,4 +28,4 @@ const IndexCard = () => {
     return render;
 };
 
-export default IndexCard;
+export default IndexCard();

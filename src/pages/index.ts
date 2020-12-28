@@ -15,7 +15,6 @@ const Index = () => {
 
     let quoteData; // quote 저장
     let imageData; // image 저장
-    const CardComponent = IndexCard();
 
     // 초기렌더링시
     function init() {
@@ -49,7 +48,7 @@ const Index = () => {
     function render() {
         CardContianer.innerHTML = "";
         CardContianer.appendChild(
-            CardComponent({
+            IndexCard({
                 Quote: quoteData,
                 Image: imageData
             })
