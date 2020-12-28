@@ -4,7 +4,7 @@ interface Props {
 }
 
 const IndexCard = () => {
-    function render({ Quote, Image }: Props) {
+    function render({ Quote, Image }: Props): Element {
         const Card = document.createElement("div");
         Card.className = "Index-Card";
         const CardTitle = document.createElement("span");

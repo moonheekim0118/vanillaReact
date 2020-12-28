@@ -7,7 +7,7 @@ interface Props {
 }
 
 const TodoInput = () => {
-    function render({ keyword, onInput, onSubmit }: Props) {
+    function render({ keyword, onInput, onSubmit }: Props): Element {
         const InputContainer = document.createElement("form");
         InputContainer.className = "Input-Container";
         const Input = document.createElement("input");
