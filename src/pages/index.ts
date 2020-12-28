@@ -5,12 +5,13 @@ import IndexCard from "../components/IndexCard";
 
 const Index = () => {
     const container = document.createElement("side");
-    container.className = "container";
-    container.innerText = "index page";
+    container.className = "index-container";
     const CardContianer = document.createElement("section");
     CardContianer.className = "Card-Container";
+    const APIButtons = document.createElement("section");
+    APIButtons.className = "API-Btns";
 
-    changeTitle("인덱스");
+    changeTitle("Taylor TODO");
 
     let quoteData; // quote 저장
     let imageData; // image 저장
@@ -20,6 +21,11 @@ const Index = () => {
     function init() {
         getQuote();
         getImage();
+
+        container.appendChild(CardContianer);
+        APIButtons.appendChild(QuoteButton);
+        APIButtons.appendChild(ImageButton);
+        container.appendChild(APIButtons);
     }
 
     async function getQuote() {
@@ -52,18 +58,14 @@ const Index = () => {
 
     // Quote 불러오는 버튼
     const QuoteButton = GenerateButton({
-        title: "random quotes",
+        title: "random quotes🧠",
         onClick: getQuote
     });
     // 이미지 불러오는 버튼
     const ImageButton = GenerateButton({
-        title: "random image",
+        title: "random image👱‍♀️",
         onClick: getImage
     });
-
-    container.appendChild(CardContianer);
-    container.appendChild(QuoteButton);
-    container.appendChild(ImageButton);
 
     init();
     return container;

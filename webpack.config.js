@@ -4,10 +4,10 @@ module.exports = {
     entry: "./src/index.ts",
     watch: true,
     devServer: {
-        contentBase:"./public",
-        hot:true,
-        port:3000,
-        historyApiFallback:true
+        contentBase: "./public",
+        hot: true,
+        port: 3000,
+        historyApiFallback: true
     },
     module: {
         rules: [
