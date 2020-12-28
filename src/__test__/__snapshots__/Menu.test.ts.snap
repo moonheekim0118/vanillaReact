@@ -25,6 +25,15 @@ exports[`Menu test component test 1`] = `
         href="#about"
       />
     </li>
+    <li
+      class="Menu"
+      data-id="#todo"
+    >
+      <a
+        class="link"
+        href="#todo"
+      />
+    </li>
   </ul>
 </aside>
 `;
