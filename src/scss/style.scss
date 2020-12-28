@@ -90,6 +90,7 @@ $white: #fff;
         width: 100%;
     }
 }
+
 .Index-Card {
     height: 600px;
     display: flex;
@@ -112,6 +113,7 @@ $white: #fff;
     }
 
     .Quote {
+        height:10%;
         margin-top: 15px;
         font-size: #{$font-default};
         font-weight: bold;
