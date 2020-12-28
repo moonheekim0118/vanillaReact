@@ -83,7 +83,7 @@ $white: #fff;
     }
 }
 
-.index-container {
+.container {
     width: 500px;
 
     @include tablet {
@@ -113,7 +113,7 @@ $white: #fff;
     }
 
     .Quote {
-        height:10%;
+        height: 10%;
         margin-top: 15px;
         font-size: #{$font-default};
         font-weight: bold;

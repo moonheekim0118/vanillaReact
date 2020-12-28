@@ -5,7 +5,7 @@ import IndexCard from "../components/IndexCard";
 
 const Index = () => {
     const container = document.createElement("side");
-    container.className = "index-container";
+    container.className = "container";
     const CardContianer = document.createElement("section");
     CardContianer.className = "Card-Container";
     const APIButtons = document.createElement("section");

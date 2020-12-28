@@ -1,5 +1,6 @@
 import indexPage from "./pages/index";
 import aboutPage from "./pages/about";
+import todoPage from "./pages/todo";
 import errorPage from "./pages/error";
 
 class Router {
@@ -9,7 +10,8 @@ class Router {
     constructor() {
         this.routes = {
             "": indexPage,
-            about: aboutPage
+            about: aboutPage,
+            todo: todoPage
         };
     }
 
