@@ -1,17 +1,18 @@
 import TodoCard from "./TodoCard";
 import { todoToggle, removeTodo, switchItems } from "../util/localStorage";
+import { findNodeInChidrenById } from "../util/util";
 import { todoObject } from "../util/types";
 
 type listType = todoObject[];
 
-const TodoList = () => {
-    function render(todoList: listType): Element {
-        const TodoList = document.createElement("div");
-        TodoList.className = "Todo-List";
-        let dragging;
-        // 각각 투두 별로 ToDoCard 컴포넌트 생성
+const TodoList = (todoList: listType): Element => {
+    const container = document.createElement("div");
+    container.className = "Todo-List";
+    let dragging;
+
+    function render() {
         todoList.map((todo) => {
-            TodoList.appendChild(
+            container.appendChild(
                 TodoCard({
                     id: todo.id,
                     description: todo.description,
@@ -19,13 +20,6 @@ const TodoList = () => {
                 })
             );
         });
-
-        // 현재 TodoList에서 특정 자식 노드 인덱스 찾아주는 함수
-        function findChildren(id: string, children): string {
-            return Object.keys(children).find(
-                (key) => children[key].dataset.id === id
-            );
-        }
 
         // Todo Remove
         function onRemove(id: number, target: Element) {
@@ -44,7 +38,9 @@ const TodoList = () => {
         function onClick(e) {
             const id = e.target.dataset.id;
             const target =
-                TodoList.children[findChildren(id, TodoList.children)];
+                container.children[
+                    findNodeInChidrenById(id, container.children)
+                ];
             if (e.target.id === "Remove-Btn") {
                 // 투두 삭제
                 onRemove(+id, target);
@@ -57,7 +53,10 @@ const TodoList = () => {
         // 드래그 저장
         function drag(e) {
             const id = e.target.dataset.id;
-            dragging = TodoList.children[findChildren(id, TodoList.children)]; // 드래깅 타겟 저장
+            dragging =
+                container.children[
+                    findNodeInChidrenById(id, container.children)
+                ]; // 드래깅 타겟 저장
             dragging.classList.add("dragging"); // background-color 추가
         }
 
@@ -69,7 +68,9 @@ const TodoList = () => {
         function drop(e) {
             const id = e.target.dataset.id;
             switchingLists(
-                TodoList.children[findChildren(id, TodoList.children)]
+                container.children[
+                    findNodeInChidrenById(id, container.children)
+                ]
             );
         }
 
@@ -103,21 +104,20 @@ const TodoList = () => {
         }
 
         // 클릭 시 이벤트
-        TodoList.addEventListener("click", onClick);
+        container.addEventListener("click", onClick);
 
         // 드래그 이벤트
-        TodoList.addEventListener("dragstart", drag);
+        container.addEventListener("dragstart", drag);
 
         // 드래그 오버 이벤트
-        TodoList.addEventListener("dragover", allowDrop);
+        container.addEventListener("dragover", allowDrop);
 
         // 드랍 이벤트
-        TodoList.addEventListener("drop", drop);
-
-        return TodoList;
+        container.addEventListener("drop", drop);
+        return container;
     }
 
-    return render;
+    return render();
 };
 
-export default TodoList();
+export default TodoList;

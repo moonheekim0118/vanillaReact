@@ -1,13 +1,14 @@
 import MenuData from "../util/menuList";
 
-const Menu = () => {
-    const MenuContainer = document.createElement("aside");
-    MenuContainer.className = "Menu-Container";
-    const MenuList = document.createElement("ul");
-    MenuList.className = "Menu-List";
+const Menu = (nowPage: string): Element => {
+    const container = document.createElement("aside");
+    container.className = "Menu-Container";
 
-    function render(nowPage: string): Element {
-        MenuContainer.innerHTML = "";
+    function render() {
+        const MenuList = document.createElement("ul");
+        MenuList.className = "Menu-List";
+
+        container.innerHTML = "";
         MenuList.innerHTML = "";
 
         MenuData.map((data) => {
@@ -29,11 +30,12 @@ const Menu = () => {
             MenuList.appendChild(Menu);
         });
 
-        MenuContainer.appendChild(MenuList);
-        return MenuContainer;
+        container.appendChild(MenuList);
+
+        return container;
     }
 
-    return render;
+    return render();
 };
 
-export default Menu();
+export default Menu;

@@ -35,3 +35,11 @@ export const throttling = (func: (any: any) => void, limit: number) => {
         }
     };
 };
+
+// children 내부에서 특정 노드 찾아주는 함수
+export const findNodeInChidrenById = (
+    id: string,
+    children: HTMLCollection
+): string => {
+    return Object.keys(children).find((key) => children[key].dataset.id === id);
+};

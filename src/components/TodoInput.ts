@@ -6,11 +6,11 @@ interface Props {
     onSubmit: (any) => void;
 }
 
-const TodoInput = () => {
-    function render({ keyword, onInput, onSubmit }: Props): Element {
-        const InputContainer = document.createElement("form");
-        InputContainer.className = "Input-Container";
+const TodoInput = ({ keyword, onInput, onSubmit }: Props): Element => {
+    const container = document.createElement("form");
+    container.className = "Input-Container";
 
+    function render() {
         const Input = document.createElement("input");
         Input.className = "Todo-Input";
         Input.value = keyword;
@@ -20,19 +20,19 @@ const TodoInput = () => {
         SubmitButton.innerText = "🐥";
         SubmitButton.type = "submit";
 
-        InputContainer.appendChild(Input);
-        InputContainer.appendChild(SubmitButton);
+        container.appendChild(Input);
+        container.appendChild(SubmitButton);
 
         // todo 입력시 input 이벤트로 저장 (디바운싱 적용)
         Input.addEventListener("input", debounce(onInput, 900));
 
         // todo 등록시 저장 (스로틀링 적용)
-        InputContainer.addEventListener("submit", throttling(onSubmit, 900));
+        container.addEventListener("submit", throttling(onSubmit, 900));
 
-        return InputContainer;
+        return container;
     }
 
-    return render;
+    return render();
 };
 
-export default TodoInput();
+export default TodoInput;

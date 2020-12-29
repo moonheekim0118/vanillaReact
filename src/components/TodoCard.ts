@@ -1,15 +1,14 @@
 import { todoObject } from "../util/types";
 
-const TodoCard = () => {
-    function render({ id, description, done }: todoObject): Element {
-        const dataId = id.toString();
-        let dragging;
+const TodoCard = ({ id, description, done }: todoObject): Element => {
+    const dataId = id.toString();
 
-        const TodoCard = document.createElement("div");
-        TodoCard.className = done ? "Todo-Card done" : "Todo-Card";
-        TodoCard.dataset.id = dataId;
-        TodoCard.draggable = true;
+    const container = document.createElement("div");
+    container.className = done ? "Todo-Card done" : "Todo-Card";
+    container.dataset.id = dataId;
+    container.draggable = true;
 
+    function render() {
         const TodoDesc = document.createElement("span");
         TodoDesc.className = "Todo-Descr";
         TodoDesc.innerText = description;
@@ -24,14 +23,14 @@ const TodoCard = () => {
         RemoveIcon.id = "Remove-Btn";
         RemoveIcon.dataset.id = dataId;
 
-        TodoCard.appendChild(TodoDesc);
-        TodoCard.appendChild(TodoDone);
-        TodoCard.appendChild(RemoveIcon);
+        container.appendChild(TodoDesc);
+        container.appendChild(TodoDone);
+        container.appendChild(RemoveIcon);
 
-        return TodoCard;
+        return container;
     }
 
-    return render;
+    return render();
 };
 
-export default TodoCard();
+export default TodoCard;

@@ -3,11 +3,11 @@ interface Props {
     Image: string;
 }
 
-const IndexCard = () => {
-    function render({ Quote, Image }: Props): Element {
-        const Card = document.createElement("div");
-        Card.className = "Index-Card";
+const IndexCard = ({ Quote, Image }: Props): Element => {
+    const container = document.createElement("div");
+    container.className = "Index-Card";
 
+    function render() {
         const CardTitle = document.createElement("span");
         CardTitle.className = "Card-Title";
         CardTitle.innerText = "Let's be cool as Taylor👩‍🎤";
@@ -21,14 +21,14 @@ const IndexCard = () => {
         QuoteContainer.innerText = Quote;
         ImageContainer.src = Image;
 
-        Card.appendChild(CardTitle);
-        Card.appendChild(ImageContainer);
-        Card.appendChild(QuoteContainer);
+        container.appendChild(CardTitle);
+        container.appendChild(ImageContainer);
+        container.appendChild(QuoteContainer);
 
-        return Card;
+        return container;
     }
 
-    return render;
+    return render();
 };
 
-export default IndexCard();
+export default IndexCard;

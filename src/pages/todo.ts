@@ -12,15 +12,25 @@ const Todo = () => {
     const container = document.createElement("side");
     container.className = "container";
 
-    const TodoListContainer = document.createElement("section");
-    TodoListContainer.className = "TodoList-Container";
-
-    const keyword = sessionGetItem("keyword");
-    let todoLists = localGetItem("todoList");
-
     function render() {
-        container.innerHTML = "";
         changeTitle("Taylor TODO | Todo");
+        container.innerHTML = "";
+
+        const TodoListContainer = document.createElement("section");
+        TodoListContainer.className = "TodoList-Container";
+
+        const keyword = sessionGetItem("keyword");
+        let todoLists = localGetItem("todoList");
+
+        // 투두 추가시 투두 리스트 뷰 업데이트
+        function updateList() {
+            todoLists = localGetItem("todoList");
+            TodoListContainer.innerHTML = "";
+            TodoListContainer.appendChild(TodoList(todoLists));
+        };
+
+        updateList();
+
         // 투두 input 컴포넌트 추가
         container.appendChild(
             TodoInput({
@@ -46,14 +56,7 @@ const Todo = () => {
         return container;
     }
 
-    function updateList() {
-        // 투두 추가시 투두 리스트 뷰 업데이트
-        todoLists = localGetItem("todoList");
-        TodoListContainer.innerHTML = "";
-        TodoListContainer.appendChild(TodoList(todoLists));
-    }
-    updateList();
-    return render;
+    return render();
 };
 
-export default Todo();
+export default Todo;

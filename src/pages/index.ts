@@ -10,11 +10,6 @@ const Index = () => {
     const CardContianer = document.createElement("section");
     CardContianer.className = "Card-Container";
 
-    const APIButtons = document.createElement("section");
-    APIButtons.className = "API-Btns";
-
-    changeTitle("Taylor TODO");
-
     let quoteData; // quote 저장
     let imageData; // image 저장
 
@@ -22,19 +17,14 @@ const Index = () => {
     function init() {
         getQuote();
         getImage();
-
-        container.appendChild(CardContianer);
-        APIButtons.appendChild(QuoteButton);
-        APIButtons.appendChild(ImageButton);
-        container.appendChild(APIButtons);
+        updateInfo();
     }
 
     async function getQuote() {
         const response = await api.getQuotes();
         if (!response.isError) {
             quoteData = response.data.quote;
-            render();
-        } else {
+            updateInfo();
         }
     }
 
@@ -42,12 +32,12 @@ const Index = () => {
         const response = await api.getImage();
         if (!response.isError) {
             imageData = response.data.url;
-            render();
-        } else {
+            updateInfo();
         }
     }
 
-    function render() {
+    // quote , image 변경시 업데이트
+    function updateInfo() {
         CardContianer.innerHTML = "";
         CardContianer.appendChild(
             IndexCard({
@@ -57,19 +47,31 @@ const Index = () => {
         );
     }
 
-    // Quote 불러오는 버튼
-    const QuoteButton = GenerateButton({
-        title: "random quotes🧠",
-        onClick: getQuote
-    });
-    // 이미지 불러오는 버튼
-    const ImageButton = GenerateButton({
-        title: "random image👱‍♀️",
-        onClick: getImage
-    });
+    function render() {
+        changeTitle("Taylor TODO");
+        const APIButtons = document.createElement("section");
+        APIButtons.className = "API-Btns";
+
+        // Quote 불러오는 버튼
+        const QuoteButton = GenerateButton({
+            title: "random quotes🧠",
+            onClick: getQuote
+        });
+        // 이미지 불러오는 버튼
+        const ImageButton = GenerateButton({
+            title: "random image👱‍♀️",
+            onClick: getImage
+        });
+
+        container.appendChild(CardContianer);
+        APIButtons.appendChild(QuoteButton);
+        APIButtons.appendChild(ImageButton);
+        container.appendChild(APIButtons);
+        return container;
+    }
 
     init();
-    return container;
+    return render();
 };
 
 export default Index;
