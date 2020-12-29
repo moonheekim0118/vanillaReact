@@ -3,9 +3,12 @@ import { todoObject } from "../util/types";
 const TodoCard = () => {
     function render({ id, description, done }: todoObject): Element {
         const dataId = id.toString();
+        let dragging;
+
         const TodoCard = document.createElement("div");
         TodoCard.className = done ? "Todo-Card done" : "Todo-Card";
         TodoCard.dataset.id = dataId;
+        TodoCard.draggable = true;
 
         const TodoDesc = document.createElement("span");
         TodoDesc.className = "Todo-Descr";

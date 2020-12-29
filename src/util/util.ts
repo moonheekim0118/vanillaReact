@@ -26,6 +26,7 @@ export const throttling = (func: (any: any) => void, limit: number) => {
     return function (event) {
         const value = event.target[0].value;
         event.target[0].value = ""; // 이전 value 비워주기
+
         const context = this;
         if (!inThrottle) {
             func.apply(context, [value]);

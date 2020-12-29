@@ -40,3 +40,15 @@ export const removeTodo = (id: number) => {
     const result = exData.filter((element) => element.id !== id);
     setItem("todoList", result);
 };
+
+// drag and drop에서 서로 순서 교환
+export const switchItems = (firstId: number, secondId: number) => {
+    const exData = localGetItem("todoList");
+    const firstIdx = exData.findIndex((element) => element.id === firstId);
+    const secondIdx = exData.findIndex((element) => element.id === secondId);
+
+    const temp = exData[firstIdx];
+    exData[firstIdx] = exData[secondIdx];
+    exData[secondIdx] = temp;
+    setItem("todoList", exData);
+};

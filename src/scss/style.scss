@@ -200,6 +200,10 @@ $gray: #f3f5f0;
         color: #{$deep-green};
     }
 
+    .Todo-Card.dragging {
+        background-color: #{$light-green};
+    }
+
     .Todo-Card {
         background-color: #{$gray};
         display: flex;
