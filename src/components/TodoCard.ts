@@ -4,7 +4,7 @@ const TodoCard = () => {
     function render({ id, description, done }: todoObject): Element {
         const dataId = id.toString();
         const TodoCard = document.createElement("div");
-        TodoCard.className = "Todo-Card";
+        TodoCard.className = done ? "Todo-Card done" : "Todo-Card";
         TodoCard.dataset.id = dataId;
 
         const TodoDesc = document.createElement("span");
