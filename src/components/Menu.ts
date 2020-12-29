@@ -12,9 +12,10 @@ const Menu = () => {
 
         MenuData.map((data) => {
             const Menu = document.createElement("li");
-            const Link = document.createElement("a");
             Menu.dataset.id = data.path;
             Menu.className = "Menu";
+
+            const Link = document.createElement("a");
             Link.className = "link";
             Link.innerText = data.name;
             Link.href = data.path;
@@ -27,6 +28,7 @@ const Menu = () => {
             Menu.appendChild(Link);
             MenuList.appendChild(Menu);
         });
+
         MenuContainer.appendChild(MenuList);
         return MenuContainer;
     }

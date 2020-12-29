@@ -7,11 +7,14 @@ const IndexCard = () => {
     function render({ Quote, Image }: Props): Element {
         const Card = document.createElement("div");
         Card.className = "Index-Card";
+
         const CardTitle = document.createElement("span");
         CardTitle.className = "Card-Title";
         CardTitle.innerText = "Let's be cool as Taylor👩‍🎤";
+
         const QuoteContainer = document.createElement("span");
         QuoteContainer.className = "Quote";
+
         const ImageContainer = document.createElement("img");
         ImageContainer.className = "Image";
 

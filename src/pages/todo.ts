@@ -11,8 +11,10 @@ import TodoList from "../components/TodoList";
 const Todo = () => {
     const container = document.createElement("side");
     container.className = "container";
+
     const TodoListContainer = document.createElement("section");
     TodoListContainer.className = "TodoList-Container";
+
     const keyword = sessionGetItem("keyword");
     let todoLists = localGetItem("todoList");
 

@@ -10,9 +10,11 @@ const TodoInput = () => {
     function render({ keyword, onInput, onSubmit }: Props): Element {
         const InputContainer = document.createElement("form");
         InputContainer.className = "Input-Container";
+
         const Input = document.createElement("input");
         Input.className = "Todo-Input";
         Input.value = keyword;
+
         const SubmitButton = document.createElement("button");
         SubmitButton.className = "Todo-Submit-Btn";
         SubmitButton.innerText = "add🐥";

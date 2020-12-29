@@ -6,7 +6,7 @@ export const changeTitle = (title: string) => {
 };
 
 // 디바운싱 함수
-export const debounce = (func, limit) => {
+export const debounce = (func: (any: any) => void, limit: number) => {
     let inDebounce;
 
     return function (event) {
@@ -20,7 +20,7 @@ export const debounce = (func, limit) => {
 };
 
 // 쓰로틀링 함수
-export const throttling = (func, limit) => {
+export const throttling = (func: (any: any) => void, limit: number) => {
     let inThrottle;
 
     return function (event) {
