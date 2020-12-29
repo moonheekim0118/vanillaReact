@@ -1,5 +1,10 @@
 import { changeTitle } from "../util/util";
-import { getItem, setItem, removeItem } from "../util/localStorage";
+import { localGetItem, localSetItem } from "../util/localStorage";
+import {
+    sessionGetItem,
+    sessionSetItem,
+    sessionRemoveItem
+} from "../util/sessionStorage";
 import TodoInput from "../components/TodoInput";
 import TodoList from "../components/TodoList";
 
@@ -8,21 +13,25 @@ const Todo = () => {
     container.className = "container";
     const TodoListContainer = document.createElement("div");
     TodoListContainer.className = "TodoList-Container";
-    const keyword = getItem("keyword");
-    let todoLists = getItem("todoList");
+    const keyword = sessionGetItem("keyword");
+    let todoLists = localGetItem("todoList");
 
     function render() {
+        container.innerHTML = "";
         changeTitle("Taylor TODO | Todo");
         // 투두 input 컴포넌트 추가
         container.appendChild(
             TodoInput({
                 keyword,
                 onInput: (value) => {
-                    setItem("keyword", value);
+                    sessionSetItem("keyword", value);
                 },
                 onSubmit: (value) => {
-                    setItem("todoList", { description: value, done: false });
-                    removeItem("keyword");
+                    localSetItem("todoList", {
+                        description: value,
+                        done: false
+                    });
+                    sessionRemoveItem("keyword");
                     updateList();
                 }
             })
@@ -34,7 +43,7 @@ const Todo = () => {
 
     function updateList() {
         // 투두 추가시 투두 리스트 뷰 업데이트
-        todoLists = getItem("todoList");
+        todoLists = localGetItem("todoList");
         TodoListContainer.innerHTML = "";
         TodoListContainer.appendChild(TodoList(todoLists));
     }
