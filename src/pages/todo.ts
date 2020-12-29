@@ -11,7 +11,7 @@ import TodoList from "../components/TodoList";
 const Todo = () => {
     const container = document.createElement("side");
     container.className = "container";
-    const TodoListContainer = document.createElement("div");
+    const TodoListContainer = document.createElement("section");
     TodoListContainer.className = "TodoList-Container";
     const keyword = sessionGetItem("keyword");
     let todoLists = localGetItem("todoList");
@@ -29,6 +29,7 @@ const Todo = () => {
                 onSubmit: (value) => {
                     localSetItem("todoList", {
                         description: value,
+                        id: Date.now(),
                         done: false
                     });
                     sessionRemoveItem("keyword");

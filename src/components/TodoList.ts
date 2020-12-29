@@ -1,6 +1,7 @@
 import TodoCard from "./TodoCard";
+import { todoObject } from "../util/types";
 
-type listType = { description: string; done: boolean }[];
+type listType = todoObject[];
 
 const TodoList = () => {
     // 로컬스토리지에 저장된 todoList 받아오기
@@ -11,7 +12,7 @@ const TodoList = () => {
         todoList.map((todo) => {
             TodoList.appendChild(
                 TodoCard({
-                    id: Date.now(),
+                    id: todo.id,
                     description: todo.description,
                     done: todo.done
                 })
