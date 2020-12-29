@@ -16,8 +16,14 @@ const TodoCard = () => {
         TodoDone.className = done ? "fas fa-check" : "";
         TodoDone.dataset.id = dataId;
 
+        const RemoveIcon = document.createElement("i");
+        RemoveIcon.className = "fas fa-trash-alt";
+        RemoveIcon.id = "Remove-Btn";
+        RemoveIcon.dataset.id = dataId;
+
         TodoCard.appendChild(TodoDesc);
         TodoCard.appendChild(TodoDone);
+        TodoCard.appendChild(RemoveIcon);
 
         return TodoCard;
     }

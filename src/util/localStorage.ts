@@ -24,7 +24,6 @@ export const todoToggle = (id: number): boolean => {
     const exData = localGetItem("todoList");
     let result;
     exData.forEach((element) => {
-        console.log(element.id, id);
         if (element.id === id) {
             result = !element.done;
             element.done = result;

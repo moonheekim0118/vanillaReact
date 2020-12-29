@@ -5,8 +5,6 @@ import { todoObject } from "../util/types";
 type listType = todoObject[];
 
 const TodoList = () => {
-    // 로컬스토리지에 저장된 todoList 받아오기
-
     function render(todoList: listType): Element {
         const TodoList = document.createElement("div");
         TodoList.className = "Todo-List";
@@ -28,15 +26,34 @@ const TodoList = () => {
             );
         }
 
-        // 투두 토글 (이벤트 위임)
-        function onToggle(e) {
-            const id = e.target.dataset.id;
+        // Todo Remove
+        function onRemove(id: number, target: Element) {
+            removeTodo(id);
+            target.classList.add("removed");
+        }
+
+        // Todo Toggle
+        function onToggle(id: number, target: Element) {
             const result = todoToggle(+id); // 토글
-            const target =
-                TodoList.children[findChildren(id, TodoList.children)];
             target.children[1].className = result ? "fas fa-check" : ""; // 자식 노드 체크 표시
         }
-        TodoList.addEventListener("click", onToggle);
+
+        // Toggle인지 Remove인지 구분후 실행
+        function onClick(e) {
+            const id = e.target.dataset.id;
+            const target =
+                TodoList.children[findChildren(id, TodoList.children)];
+            if (e.target.id === "Remove-Btn") {
+                // 투두 삭제
+                onRemove(+id, target);
+            } else {
+                // Done Toggle
+                onToggle(+id, target);
+            }
+        }
+
+        // 클릭 시 이벤트
+        TodoList.addEventListener("click", onClick);
         return TodoList;
     }
 
