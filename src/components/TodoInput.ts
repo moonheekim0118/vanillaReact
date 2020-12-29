@@ -17,7 +17,7 @@ const TodoInput = () => {
 
         const SubmitButton = document.createElement("button");
         SubmitButton.className = "Todo-Submit-Btn";
-        SubmitButton.innerText = "add🐥";
+        SubmitButton.innerText = "🐥";
         SubmitButton.type = "submit";
 
         InputContainer.appendChild(Input);

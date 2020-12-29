@@ -7,8 +7,10 @@ $font-small: 0.8em;
 
 $deep-green: #00cc66;
 $light-green: #66ffb3;
+$very-light-green: #ccffcc;
 $purple: #cc00ff;
 $white: #fff;
+$gray: #f3f5f0;
 
 * {
     margin: 0;
@@ -85,7 +87,7 @@ $white: #fff;
 
 .container {
     width: 500px;
-    height: 600px;
+    margin-top: 150px;
 
     display: flex;
     flex-direction: column;
@@ -94,7 +96,6 @@ $white: #fff;
 
     @include tablet {
         width: 100%;
-        height: 800px;
     }
 }
 
@@ -153,6 +154,79 @@ $white: #fff;
     }
 }
 
-.Todo-Card.removed {
-    display: none;
+.Input-Container {
+    .Todo-Input {
+        background-color: #{$very-light-green};
+        font-size: #{$font-default};
+        border: none;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        padding: 5px 15px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .Todo-Submit-Btn {
+        background-color: #{$very-light-green};
+        border: none;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        font-size: #{$font-default};
+        text-align: center;
+        padding: 5px;
+        cursor: pointer;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+.TodoList-Container {
+    padding: 25px;
+
+    .Todo-List {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Todo-Card.removed {
+        display: none;
+    }
+
+    .Todo-Card.done {
+        color: #{$deep-green};
+    }
+
+    .Todo-Card {
+        background-color: #{$gray};
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        width: 250px;
+
+        padding: 10px 15px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+
+        &:hover {
+            color: #{$deep-green};
+        }
+        cursor: pointer;
+    }
+
+    #Remove-Btn {
+        position: absolute;
+        right: -20px;
+        opacity: 0;
+
+        cursor: pointer;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
 }

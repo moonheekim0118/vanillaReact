@@ -36,6 +36,7 @@ const TodoList = () => {
         function onToggle(id: number, target: Element) {
             const result = todoToggle(+id); // 토글
             target.children[1].className = result ? "fas fa-check" : ""; // 자식 노드 체크 표시
+            target.classList.toggle("done");
         }
 
         // Toggle인지 Remove인지 구분후 실행

@@ -29,13 +29,15 @@ const Todo = () => {
                     sessionSetItem("keyword", value);
                 },
                 onSubmit: (value) => {
-                    addTodo("todoList", {
-                        description: value,
-                        id: Date.now(),
-                        done: false
-                    });
-                    sessionRemoveItem("keyword");
-                    updateList();
+                    if (value.length > 0) {
+                        addTodo("todoList", {
+                            description: value,
+                            id: Date.now(),
+                            done: false
+                        });
+                        sessionRemoveItem("keyword");
+                        updateList();
+                    }
                 }
             })
         );
