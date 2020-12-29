@@ -1,5 +1,5 @@
 import { changeTitle } from "../util/util";
-import { localGetItem, localSetItem } from "../util/localStorage";
+import { localGetItem, addTodo } from "../util/localStorage";
 import {
     sessionGetItem,
     sessionSetItem,
@@ -27,7 +27,7 @@ const Todo = () => {
                     sessionSetItem("keyword", value);
                 },
                 onSubmit: (value) => {
-                    localSetItem("todoList", {
+                    addTodo("todoList", {
                         description: value,
                         id: Date.now(),
                         done: false
