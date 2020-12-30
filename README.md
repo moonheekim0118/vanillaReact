@@ -31,11 +31,12 @@ npm run start // 빌드 + 서버 구동
 
 ![](./demos/demo2.gif)
 
-![](./demos/demo3.gif)
+
+![](./demos/demo4.gif)
 
 1. **입력창에 입력한 내용**은 제출하지 않은 경우 **sessionStorage**에 저장. 이 때, 모든 Input 이벤트에 따라 sessionStorage를 업데이트 하지않고 디바운싱을 이용하여 900ms동안 input 이벤트가 없을 경우에만 sessionStorage에 저장하도록 구현.
 
-![](./demos/demo4.gif)
+![](./demos/demo3.gif)
 
 2. **투두리스트**는 **localStorage**에 저장. description과 id 그리고 done 여부를 저장
 3. todo done 체크 / 삭제 구현
