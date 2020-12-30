@@ -29,8 +29,7 @@ npm run start // 빌드 + 서버 구동
 
 ## Todo page
 
-![](./demos/demo2.gif)
-
+<br/>
 
 ![](./demos/demo4.gif)
 
@@ -39,6 +38,10 @@ npm run start // 빌드 + 서버 구동
 ![](./demos/demo3.gif)
 
 2. **투두리스트**는 **localStorage**에 저장. description과 id 그리고 done 여부를 저장
+
+![](./demos/demo2.gif)
+
+
 3. todo done 체크 / 삭제 구현
 4. 드래그 앤 드랍을 구현하여 투두리스트 순서를 바꿀 수 있도록 구현
 
