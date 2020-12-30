@@ -23,6 +23,7 @@
         "node-sass": "^5.0.0",
         "pre-commit": "^1.2.2",
         "prettier": "^2.2.1",
+        "pretty-quick": "^3.1.0",
         "sass-loader": "^10.1.0",
         "style-loader": "^2.0.0",
         "ts-jest": "^26.4.4",
@@ -34,7 +35,7 @@
     },
     "scripts": {
         "build": "webpack --mode development --watch",
-        "test": "jest --watch",
+        "test": "jest",
         "start": "webpack serve"
     },
     "repository": {
@@ -47,4 +48,9 @@
         "url": "https://github.com/moonheekim0118/VanilliaJS_MVC/issues"
     },
     "homepage": "https://github.com/moonheekim0118/VanilliaJS_MVC#readme",
+    "husky": {
+        "hooks": {
+            "pre-commit": "pretty-quick --staged"
+        }
+    }
 }
