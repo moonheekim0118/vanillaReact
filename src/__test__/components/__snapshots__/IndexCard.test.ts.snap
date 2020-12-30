@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<IndexCard/> matches snapshot 1`] = `
+<div
+  class="Index-Card"
+>
+  <span
+    class="Card-Title"
+  />
+  <img
+    class="Image"
+    src="test Image"
+  />
+  <span
+    class="Quote"
+  />
+</div>
+`;

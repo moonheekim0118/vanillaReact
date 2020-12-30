@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`about page rendering matches snapshot 1`] = `
+<side
+  class="container"
+>
+  
+        
+  <h2>
+    a Swiftie made this site just for fun🤩
+  </h2>
+  
+        
+  <p>
+    I use 
+    <a
+      href="https://taylor.rest/"
+    >
+      taylor rest API
+    </a>
+     for serving her photos and quotes
+  </p>
+  
+        
+</side>
+`;

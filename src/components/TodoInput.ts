@@ -24,7 +24,7 @@ const TodoInput = ({ keyword, onInput, onSubmit }: Props): Element => {
         container.appendChild(SubmitButton);
 
         // todo 입력시 input 이벤트로 저장 (디바운싱 적용)
-        Input.addEventListener("input", debounce(onInput, 900));
+        container.addEventListener("input", debounce(onInput, 900));
 
         // todo 등록시 저장 (스로틀링 적용)
         container.addEventListener("submit", throttling(onSubmit, 900));

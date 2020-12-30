@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TodoCard/> matches snapshot 1`] = `
+<div
+  class="Todo-Card done"
+  data-id="1"
+  draggable="true"
+>
+  <span
+    class="Todo-Descr"
+    data-id="1"
+  />
+  <i
+    class="fas fa-check"
+    data-id="1"
+  />
+  <i
+    class="fas fa-trash-alt"
+    data-id="1"
+    id="Remove-Btn"
+  />
+</div>
+`;

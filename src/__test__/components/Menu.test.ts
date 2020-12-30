@@ -1,5 +1,5 @@
 import "jsdom-global/register";
-import MenuComponent from "../components/Menu";
+import MenuComponent from "../../components/Menu";
 
 describe("Menu test", () => {
     it("component test", () => {

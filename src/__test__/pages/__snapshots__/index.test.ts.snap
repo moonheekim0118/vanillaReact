@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`index page rendering matches snapshot 1`] = `
+<side
+  class="container"
+>
+  <section
+    class="Card-Container"
+  >
+    <div
+      class="Index-Card"
+    >
+      <span
+        class="Card-Title"
+      />
+      <img
+        class="Image"
+        src="undefined"
+      />
+      <span
+        class="Quote"
+      />
+    </div>
+  </section>
+  <section
+    class="API-Btns"
+  >
+    <button
+      class="Generate-Btn"
+    />
+    <button
+      class="Generate-Btn"
+    />
+  </section>
+</side>
+`;

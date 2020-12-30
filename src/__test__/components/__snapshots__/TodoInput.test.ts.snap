@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TodoInput/> matches snapshot 1`] = `
+<form
+  class="Input-Container"
+>
+  <input
+    class="Todo-Input"
+  />
+  <button
+    class="Todo-Submit-Btn"
+    type="submit"
+  />
+</form>
+`;

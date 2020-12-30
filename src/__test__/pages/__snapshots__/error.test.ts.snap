@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`index page rendering matches snapshot 1`] = `
+<div
+  class="container"
+>
+  <h2 />
+</div>
+`;

@@ -10,7 +10,7 @@ export const debounce = (func: (any: any) => void, limit: number) => {
     let inDebounce;
 
     return function (event) {
-        const value = event.target.value;
+        const value = event.target?.value;
         const context = this;
         if (inDebounce) {
             clearTimeout(inDebounce);
@@ -24,9 +24,10 @@ export const throttling = (func: (any: any) => void, limit: number) => {
     let inThrottle;
 
     return function (event) {
-        const value = event.target[0].value;
-        event.target[0].value = ""; // 이전 value 비워주기
-
+        const value = event.target[0]?.value;
+        if (value) {
+            event.target[0].value = ""; // 이전 value 비워주기
+        }
         const context = this;
         if (!inThrottle) {
             func.apply(context, [value]);

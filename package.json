@@ -34,7 +34,7 @@
     },
     "scripts": {
         "build": "webpack --mode development --watch",
-        "test": "jest",
+        "test": "jest --watch",
         "start": "webpack serve"
     },
     "repository": {
@@ -47,9 +47,4 @@
         "url": "https://github.com/moonheekim0118/VanilliaJS_MVC/issues"
     },
     "homepage": "https://github.com/moonheekim0118/VanilliaJS_MVC#readme",
-    "husky": {
-        "hooks": {
-            "pre-commit": "pretty-quick --staged"
-        }
-    }
 }

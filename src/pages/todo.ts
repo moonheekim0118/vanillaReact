@@ -27,7 +27,7 @@ const Todo = () => {
             todoLists = localGetItem("todoList");
             TodoListContainer.innerHTML = "";
             TodoListContainer.appendChild(TodoList(todoLists));
-        };
+        }
 
         updateList();
 
